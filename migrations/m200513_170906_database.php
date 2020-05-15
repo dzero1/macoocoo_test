@@ -28,6 +28,7 @@ class m200513_170906_database extends Migration
 
         $this->createTable('schedule', [
             'id' => $this->primaryKey(),
+            'tournament_id' => $this->integer()->notNull(),
             'team1' => $this->integer()->notNull(),
             'team2' => $this->integer()->notNull(),
             'status' => $this->string(),
@@ -42,7 +43,10 @@ class m200513_170906_database extends Migration
      */
     public function safeDown()
     {
-        return $this->dropTable('tournament') && $this->dropTable('teams') && $this->dropTable('schedule');
+       $this->dropTable('tournament');
+       $this->dropTable('teams');
+       $this->dropTable('schedule');
+       return false;
     }
 
     /*
