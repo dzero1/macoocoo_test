@@ -112,15 +112,7 @@ class ScheduleController extends Controller
                 }
             }
 
-            $searchModel = new ScheduleSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-            $model = new Match();
-
-            return $this->render('index', [
-                'searchModel' => $searchModel,
-                'dataProvider' => $dataProvider,
-                'model' => $model,
-            ]);
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
