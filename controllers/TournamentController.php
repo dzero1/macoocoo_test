@@ -132,12 +132,15 @@ class TournamentController extends Controller
 
 
     public static function getTheWinner($id){
-        $query = Schedule::find()
-            ->where(['tournament_id' => $id]);
     
-        $remaining_match = $query->andWhere(['not', ['status' => 'Finished']])->count();
-    
-        if ($remaining_match > 0){
+        $all_match = Schedule::find()
+            ->where(['tournament_id' => $id])->count();
+
+        $remaining_match = Schedule::find()
+            ->where(['tournament_id' => $id])
+            ->andWhere(['not', ['status' => 'Finished']])->count();
+        
+        if ($all_match == 0 || $remaining_match > 0){
             return 'TBA';
         } else {
     
