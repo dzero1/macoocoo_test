@@ -131,7 +131,7 @@ $this->params['breadcrumbs'][] = $this->title;
     <?php 
         $form = ActiveForm::begin([
             'id' => 'play-form',
-            'action' => 'schedule/play',
+            'action' => '/schedule/play',
             'method' => 'POST',
         ]); 
 
