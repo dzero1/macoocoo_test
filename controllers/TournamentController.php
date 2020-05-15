@@ -138,7 +138,7 @@ class TournamentController extends Controller
 
         $remaining_match = Schedule::find()
             ->where(['tournament_id' => $id])
-            ->andWhere(['not', ['status' => 'Finished']])->count();
+            ->andWhere(['status' => NULL])->count();
         
         if ($all_match == 0 || $remaining_match > 0){
             return 'TBA';
