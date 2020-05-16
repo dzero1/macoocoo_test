@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\DetailView;
+use app\models\Schedule;
 use app\models\Teams;
 
 /* @var $this yii\web\View */
@@ -38,28 +39,58 @@ $this->params['breadcrumbs'][] = $this->title;
     </br>
     <div class="row">
         <div class="col-6">
+            <h4><?= Teams::findOne(Schedule::findOne($id)->team1)->display_name ?></h4>
             <?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
                     //'id',
                     //'schedule_id',
-                    'team1_trys',
-                    'team1_conversions',
-                    'team1_bonus',
-                    'team1_total',
+                    [
+                        'attribute' => 'team1_trys',
+                        'label' => 'Trys'
+                    ],
+                    [
+                        'attribute' => 'team1_conversions',
+                        'label' => 'Conversions'
+                    ],
+                    [
+                        'attribute' => 'team1_bonus',
+                        'label' => 'Bonus'
+                    ],
+                    [
+                        'attribute' => 'team1_total',
+                        'label' => 'Total'
+                    ],
                     //'status',
                     //'created_at',
                 ],
             ]) ?>
         </div>
         <div class="col-6">
+            <h4><?= Teams::findOne(Schedule::findOne($id)->team2)->display_name ?></h4>
             <?= DetailView::widget([
                 'model' => $model,
                 'attributes' => [
-                    'team2_trys',
-                    'team2_conversions',
-                    'team2_bonus',
-                    'team2_total',
+                    //'id',
+                    //'schedule_id',
+                    [
+                        'attribute' => 'team2_trys',
+                        'label' => 'Trys'
+                    ],
+                    [
+                        'attribute' => 'team2_conversions',
+                        'label' => 'Conversions'
+                    ],
+                    [
+                        'attribute' => 'team2_bonus',
+                        'label' => 'Bonus'
+                    ],
+                    [
+                        'attribute' => 'team2_total',
+                        'label' => 'Total'
+                    ],
+                    //'status',
+                    //'created_at',
                 ],
             ]) ?>
         </div>

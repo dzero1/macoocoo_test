@@ -257,6 +257,7 @@ class ScheduleController extends Controller
     public function actionResult($id)
     {
         return $this->render('result', [
+            'id' => $id,
             'model' => Match::findOne(['schedule_id'=>$id]),
         ]);
     }

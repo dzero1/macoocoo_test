@@ -28,7 +28,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
-        'filterModel' => $searchModel,
+        //'filterModel' => $searchModel,
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
@@ -61,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
             [
                 'class' => 'yii\grid\ActionColumn',
                 'header' => 'Actions',
-                'template' => '{play}{result}',
+                'template' => '{play} {result}',
                 'buttons' => [
                     'play' => function ($url, $model) {
                         //if ($model->status != 'Finished'){
@@ -76,8 +76,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     },
                     'result' => function ($url, $model) {
                         if ($model->status == 'Finished'){
-                            return Html::a('<span class="fa fa-eye"></span> Match result', $url, [
-                                'title' => 'Match result',
+                            return Html::a('<span class="fa fa-eye"></span>Leaderboard', $url, [
+                                'title' => 'Leaderboard',
                                 'class' => 'btn btn-warning btn-sm result',
                                 'data-method' => 'post',
                                 'style' => ' text-decoration: none; }',
